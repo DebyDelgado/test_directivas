@@ -5,13 +5,17 @@
 
 <input type="text" name="apellido"[(ngModel)]="apellido"/><br/><br/>
 
+<input type="text" name="cargo"[(ngModel)]="cargo"/><br/><br/>
+
 <input type="submit" value="Registrar" (click)="registrarUser()" class="btn btn-primary"/><br/>
 
 </form>
 
 <br/>
 
-<p *ngIf="registrado; else sinRegis">{{mensaje}} con el nombre de {{nombre}} y el apellido {{apellido}}</p>
+<p *ngIf="registrado; else sinRegis">{{mensaje}} con el nombre de: 
+  <span [ngStyle]="{color: nombre=='Deby' ?  'pink' : 'black'}">{{nombre}} </span> {{apellido}}
+   y el cargo: <span [ngClass]="{paraDirectores: cargo=='Director'}"> {{cargo}} </span></p>
 
 <ng-template #sinRegis>
 
@@ -24,7 +28,7 @@
 <br><br>
 
 
-<ul >
+<ul class="li" >
 <li *ngFor="let entrada of entradas; let i=index" ><span style="font-size:large; font-weight:bold;">{{entrada.titulos}}</span>
 . Entrada {{i+1}}
 </li>

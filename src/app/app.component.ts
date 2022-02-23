@@ -16,6 +16,8 @@ export class AppComponent {
 
   apellido:string="";
 
+  cargo:string="";
+
   entradas:any;
 
 
